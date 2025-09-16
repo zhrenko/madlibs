@@ -1,4 +1,5 @@
 library(shiny)
+library(stringr)
 
 logging_message <- function(message) {
   cat(paste0(strrep("-", 20), "LOG: ", message))
@@ -38,7 +39,7 @@ server <- function(input, output) {
   story <- eventReactive(input$submit, {
     generate_story(input$noun1, input$verb, input$adjective, input$adverb)
   })
-  logging_message("Rendering story...")
+
   output$story <- renderText({
     story()
   })
