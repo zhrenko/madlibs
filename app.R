@@ -1,12 +1,10 @@
 library(shiny)
-library(stringr)
 
 logging_message <- function(message) {
   cat(paste0(strrep("-", 20), "LOG: ", message))
   return(NULL)
 }
 
-logging_message("Loading script...")
 
 generate_story <- function(noun, verb, adjective, adverb) {
   logging_message("Generating story...")
